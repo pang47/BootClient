@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tao.client.common.dao.IniConfigMapper">
+	<resultMap type="com.tao.client.common.model.IniConfigDTO" id="IniConfig">
+		<result property="iniType" column="ini_type"/>
+		<result property="iniTypeName" column="ini_type_name"/>
+		<result property="iniClass" column="ini_class"/>
+		<result property="iniClassName" column="ini_class_name"/>
+		<result property="iniCode" column="ini_code"/>
+		<result property="iniCodeValue" column="ini_code_value"/>
+	</resultMap>
+	
+  	<select id="findAll" resultMap="IniConfig">
+  		select * from ini_config;
+  	</select>
+  	
+  	<select id="getIniConfigByIniTypeAndIniClass" resultMap="IniConfig">
+  		select * from ini_config where ini_type = #{iniType} and ini_class = #{iniClass};
+  	</select>
+ 
+</mapper>

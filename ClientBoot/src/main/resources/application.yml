@@ -1,0 +1,41 @@
+server:
+  port: 8040
+  tomcat:
+    uri-encoding: UTF-8
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.tao.client.model
+logging:
+  level:
+    com.tao.client.common.dao: debug
+dubbo:
+  application:
+    name: dubbo-provider
+  protocol:
+    name: dubbo
+    port: 28080
+  registry:
+    address: zookeeper://zkServer:2181
+  provider:
+    timeout: 60000
+spring:
+  application:
+    name: dubbo-provider
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://dbserver:3306/tao_test?useUnicode=true&characterEncoding=utf8
+    username: chentao
+    password: Z1314520x!
+    dbcp2:
+      validation-query: select 1 from dual
+    initialSize: 1
+    minIdle: 3
+    maxActive: 20
+    maxWait: 6000
+    timeBetweenEvictionRunMillis: 6000
+    minEvitableIdleTimeMillis: 600
+    validationQuery: select 1 from dual
+  #devtools:
+    #restart:
+      #enabled: true
